@@ -53,7 +53,7 @@ include_once 'include/sidebar.php';
                             <div class="col-md-6 col-12">
                                 <label class="form-label" for="validationCustom05">campaign name</label>
                                 <input class="form-control" id="validationCustom05" type="text"
-                                    placeholder="Enter shortcode" required="">
+                                    placeholder="Enter campaign name" required="">
                                 <div class="invalid-feedback">Please enter your valid</div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>

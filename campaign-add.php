@@ -14,50 +14,50 @@ include_once 'include/sidebar.php';
                         <h4>Add campaign</h4>
                     </div>
                     <div class="card-body">
-                        <form class="row g-3 needs-validation custom-input" novalidate="">
+                        <form class="row g-3 needs-validation custom-input" novalidate="" action="include/insert-data.php" method="POST" enctype="multipart/form-data">
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom01">campaign Title</label>
-                                <input class="form-control" id="validationCustom01" type="text"
+                                <label class="form-label">campaign Title</label>
+                                <input class="form-control" type="text" name="campaign_title"
                                     placeholder="Enter campaign title" required="">
                                 <div class="invalid-feedback">Please enter your valid </div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom02">campaign Priority</label>
-                                <input class="form-control" id="validationCustom02" type="number"
+                                <label class="form-label">campaign Priority</label>
+                                <input class="form-control" type="number" name="priority"
                                     placeholder="Enter value between 1 to 10" required="">
                                 <div class="invalid-feedback">Please enter your valid </div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom03">campaign Product</label>
-                                <input class="form-control" id="validationCustom03" type="text"
+                                <label class="form-label">campaign Product</label>
+                                <input class="form-control" type="text" name="product"
                                     placeholder="Start typing to get list of Products" required="">
                                 <div class="invalid-feedback">Please enter your valid</div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom04">campaign Category</label>
-                                <input class="form-control" id="validationCustom04" type="text"
-                                    placeholder="Enter Category" required="">
+                                <label class="form-label">campaign Category</label>
+                                <input class="form-control" type="text" name="category" placeholder="Enter Category"
+                                    required="">
                                 <div class="invalid-feedback">Please enter your valid</div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom05">campaign ShortCode</label>
-                                <input class="form-control" id="validationCustom05" type="text"
-                                    placeholder="Enter shortcode" required="">
+                                <label class="form-label">campaign ShortCode</label>
+                                <input class="form-control" type="text" name="shortcode" placeholder="Enter shortcode"
+                                    required="">
                                 <div class="invalid-feedback">Please enter your valid</div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom06">Maximum number of retries</label>
-                                <input class="form-control" id="validationCustom06" type="number"
+                                <label class="form-label">Maximum number of retries</label>
+                                <input class="form-control" type="number" name="retries"
                                     placeholder="Enter value between 0 to 2. By default it use global setting value"
                                     required="">
                                 <div class="invalid-feedback">Please enter your valid</div>
@@ -69,55 +69,53 @@ include_once 'include/sidebar.php';
                                 <div class="card-wrapper border rounded-3 checkbox-checked">
                                     <div class="radio-form">
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-1" type="radio"
-                                                name="radio-stacked" required="">
-                                            <label class="form-check-label" for="validationFormCheck07-1">No
+                                            <input class="form-check-input" id="noAnswer" type="radio"
+                                                name="retryScenario" value="No Answer">
+                                            <label class="form-check-label" for="noAnswer">No
                                                 Answer</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-2" type="radio"
-                                                name="radio-stacked" required="">
-                                            <label class="form-check-label"
-                                                for="validationFormCheck07-2">Unavailable</label>
+                                            <input class="form-check-input" id="unavailable" type="radio"
+                                                name="retryScenario" value="Unavailable">
+                                            <label class="form-check-label" for="unavailable">Unavailable</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-3" type="radio"
-                                                name="radio-stacked" required="">
-                                            <label class="form-check-label" for="validationFormCheck07-3">Reject</label>
+                                            <input class="form-check-input" id="reject" type="radio"
+                                                name="retryScenario" value="Reject">
+                                            <label class="form-check-label" for="reject">Reject</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-4" type="radio"
-                                                name="radio-stacked" required="">
-                                            <label class="form-check-label" for="validationFormCheck07-4">All</label>
+                                            <input class="form-check-input" id="all" type="radio" name="retryScenario"
+                                                value="All">
+                                            <label class="form-check-label" for="all">All</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom08">Entry interval</label>
-                                <input class="form-control" id="validationCustom08" type="number" placeholder="0"
-                                    required>
+                                <label class="form-label">Entry interval</label>
+                                <input class="form-control" type="number" placeholder="0" name="entryInterval">
                                 <div class="invalid-feedback">Please enter your valid</div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label for="flexSwitchCheckChecked09">Skip contact policy</label>
+                                <label>Skip contact policy</label>
                                 <div class="d-flex">
                                     <div class="flex-grow-1 icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" id="flexSwitchCheckChecked09"><span
+                                            <input type="checkbox" value="Skip contact policy" name="contactPolicy"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label for="flexSwitchCheckChecked10">Skip DNCR</label>
+                                <label>Skip DNCR</label>
                                 <div class="d-flex">
                                     <div class="flex-grow-1 icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" id="flexSwitchCheckChecked10"><span
+                                            <input type="checkbox" value="Skip DNCR" name="skipDNCR"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
@@ -128,30 +126,30 @@ include_once 'include/sidebar.php';
                                 <div class="d-flex mb-2">
                                     <div class="text-end icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" checked="" id="flexRadioDefault11"><span
+                                            <input type="checkbox" value="Global DNCR" checked="" name="globalDNCR"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
-                                    <label class="col-form-label m-l-10" for="flexRadioDefault11">Apply global DNCR
+                                    <label class="col-form-label m-l-10">Apply global DNCR
                                         list</label>
                                 </div>
                                 <div class="d-flex">
                                     <div class="text-end icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" id="flexRadioDefault12"><span
+                                            <input type="checkbox" value="Specific DNCR" name="specificDNCR"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
-                                    <label class="col-form-label m-l-10" for="flexRadioDefault12">Skip Specific DNCR
+                                    <label class="col-form-label m-l-10">Skip Specific DNCR
                                         list</label>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="formFile11">Specific DNCR list</label>
-                                <input class="form-control" id="formFile11" type="file" aria-label="file example"
-                                    required="">
+                                <label class="form-label">Specific DNCR list</label>
+                                <input class="form-control" type="file" name="specificDNCRList">
                                 <div class="invalid-feedback">Invalid form file selected</div>
                             </div>
+
                             <div class="col-12">
                                 <div class="accordion dark-accordion" id="accordionPanelsStayOpenExample">
                                     <div class="accordion-item">
@@ -176,42 +174,41 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault13-1"><span
+                                                                            <input type="checkbox" value="Skip DTMF"
+                                                                                name="level1SkipDTMF"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault13-1">Skip DTMF</label>
+                                                                    <label class="col-form-label m-l-10">Skip
+                                                                        DTMF</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-2"
-                                                                    type="number" placeholder="DTMF" required>
+                                                                <input class="form-control" name="level1DTMF"
+                                                                    type="text" placeholder="DTMF">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-3"
-                                                                    type="number" placeholder="Kayword" required>
+                                                                <input class="form-control" name="level1Keyword"
+                                                                    type="text" placeholder="Kayword">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-4"
-                                                                    type="number" placeholder="Short Code" required>
+                                                                <input class="form-control" name="level1ShortCode"
+                                                                    type="text" placeholder="Short Code">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-5"
-                                                                    type="number" placeholder="API URL" required>
+                                                                <input class="form-control" name="level1APIURL"
+                                                                    type="text" placeholder="API URL">
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault13-2"><span
+                                                                            <input type="checkbox" value="CDR"
+                                                                                name="level1CDR"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault13-2">CDR</label>
+                                                                    <label class="col-form-label m-l-10">CDR</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -223,20 +220,20 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault14-1"><span
+                                                                            <input type="checkbox" value="Use existing"
+                                                                                name="level1PromptUseExisting"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault14-1">Use existing</label>
+                                                                    <label class="col-form-label m-l-10">Use
+                                                                        existing</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <label class="form-label" for="formFile14-2">Upload
+                                                                <label class="form-label">Upload
                                                                     new</label>
-                                                                <input class="form-control" id="formFile14-2"
-                                                                    type="file" aria-label="file example" required="">
+                                                                <input class="form-control" name="level1PromptFile"
+                                                                    type="file">
                                                                 <div class="invalid-feedback">Invalid form file selected
                                                                 </div>
                                                             </div>
@@ -249,20 +246,20 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault15-1"><span
+                                                                            <input type="checkbox" value="Use existing"
+                                                                                name="level1ThankYouPromptUse"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault15-1">Use existing</label>
+                                                                    <label class="col-form-label m-l-10">Use
+                                                                        existing</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <label class="form-label" for="formFile15-2">Upload
+                                                                <label class="form-label">Upload
                                                                     new</label>
-                                                                <input class="form-control" id="formFile15-2"
-                                                                    type="file" aria-label="file example" required="">
+                                                                <input class="form-control"
+                                                                    name="level1ThankYouPromptFile" type="file">
                                                                 <div class="invalid-feedback">Invalid form file selected
                                                                 </div>
                                                             </div>
@@ -286,7 +283,7 @@ include_once 'include/sidebar.php';
                                         <div class="accordion-collapse collapse" id="panelsStayOpen-collapseTwo"
                                             aria-labelledby="panelsStayOpen-headingTwo">
                                             <div class="accordion-body">
-                                                <div class="row">
+                                            <div class="row">
                                                     <div class="col-md-4">
                                                         <h5>Input Details</h5>
                                                         <div class="row g-3 mt-2">
@@ -294,42 +291,41 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault13-1"><span
+                                                                            <input type="checkbox" value="Skip DTMF"
+                                                                                name="level2SkipDTMF"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault13-1">Skip DTMF</label>
+                                                                    <label class="col-form-label m-l-10">Skip
+                                                                        DTMF</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-2"
-                                                                    type="number" placeholder="DTMF" required>
+                                                                <input class="form-control" name="level2DTMF"
+                                                                    type="text" placeholder="DTMF">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-3"
-                                                                    type="number" placeholder="Kayword" required>
+                                                                <input class="form-control" name="level2Keyword"
+                                                                    type="text" placeholder="Kayword">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-4"
-                                                                    type="number" placeholder="Short Code" required>
+                                                                <input class="form-control" name="level2ShortCode"
+                                                                    type="text" placeholder="Short Code">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-5"
-                                                                    type="number" placeholder="API URL" required>
+                                                                <input class="form-control" name="level2APIURL"
+                                                                    type="text" placeholder="API URL">
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault13-2"><span
+                                                                            <input type="checkbox" value="CDR"
+                                                                                name="level2CDR"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault13-2">CDR</label>
+                                                                    <label class="col-form-label m-l-10">CDR</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -341,20 +337,20 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault14-1"><span
+                                                                            <input type="checkbox" value="Use existing"
+                                                                                name="level2PromptUseExisting"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault14-1">Use existing</label>
+                                                                    <label class="col-form-label m-l-10">Use
+                                                                        existing</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <label class="form-label" for="formFile14-2">Upload
+                                                                <label class="form-label">Upload
                                                                     new</label>
-                                                                <input class="form-control" id="formFile14-2"
-                                                                    type="file" aria-label="file example" required="">
+                                                                <input class="form-control" name="level2PromptFile"
+                                                                    type="file">
                                                                 <div class="invalid-feedback">Invalid form file selected
                                                                 </div>
                                                             </div>
@@ -367,20 +363,20 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault15-1"><span
+                                                                            <input type="checkbox" value="Use existing"
+                                                                                name="level2ThankYouPromptUse"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault15-1">Use existing</label>
+                                                                    <label class="col-form-label m-l-10">Use
+                                                                        existing</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <label class="form-label" for="formFile15-2">Upload
+                                                                <label class="form-label">Upload
                                                                     new</label>
-                                                                <input class="form-control" id="formFile15-2"
-                                                                    type="file" aria-label="file example" required="">
+                                                                <input class="form-control"
+                                                                    name="level2ThankYouPromptFile" type="file">
                                                                 <div class="invalid-feedback">Invalid form file selected
                                                                 </div>
                                                             </div>
@@ -404,7 +400,7 @@ include_once 'include/sidebar.php';
                                         <div class="accordion-collapse collapse" id="panelsStayOpen-collapseThree"
                                             aria-labelledby="panelsStayOpen-headingThree">
                                             <div class="accordion-body">
-                                                <div class="row">
+                                            <div class="row">
                                                     <div class="col-md-4">
                                                         <h5>Input Details</h5>
                                                         <div class="row g-3 mt-2">
@@ -412,42 +408,41 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault13-1"><span
+                                                                            <input type="checkbox" value="Skip DTMF"
+                                                                                name="level3SkipDTMF"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault13-1">Skip DTMF</label>
+                                                                    <label class="col-form-label m-l-10">Skip
+                                                                        DTMF</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-2"
-                                                                    type="number" placeholder="DTMF" required>
+                                                                <input class="form-control" name="level3DTMF"
+                                                                    type="text" placeholder="DTMF">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-3"
-                                                                    type="number" placeholder="Kayword" required>
+                                                                <input class="form-control" name="level3Keyword"
+                                                                    type="text" placeholder="Kayword">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-4"
-                                                                    type="number" placeholder="Short Code" required>
+                                                                <input class="form-control" name="level3ShortCode"
+                                                                    type="text" placeholder="Short Code">
                                                             </div>
                                                             <div class="col-12">
-                                                                <input class="form-control" id="validationCustom13-5"
-                                                                    type="number" placeholder="API URL" required>
+                                                                <input class="form-control" name="level3APIURL"
+                                                                    type="text" placeholder="API URL">
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault13-2"><span
+                                                                            <input type="checkbox" value="CDR"
+                                                                                name="level3CDR"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault13-2">CDR</label>
+                                                                    <label class="col-form-label m-l-10">CDR</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -459,20 +454,20 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault14-1"><span
+                                                                            <input type="checkbox" value="Use existing"
+                                                                                name="level3PromptUseExisting"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault14-1">Use existing</label>
+                                                                    <label class="col-form-label m-l-10">Use
+                                                                        existing</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <label class="form-label" for="formFile14-2">Upload
+                                                                <label class="form-label">Upload
                                                                     new</label>
-                                                                <input class="form-control" id="formFile14-2"
-                                                                    type="file" aria-label="file example" required="">
+                                                                <input class="form-control" name="level3PromptFile"
+                                                                    type="file">
                                                                 <div class="invalid-feedback">Invalid form file selected
                                                                 </div>
                                                             </div>
@@ -485,20 +480,20 @@ include_once 'include/sidebar.php';
                                                                 <div class="d-flex">
                                                                     <div class="text-end icon-state switch-outline">
                                                                         <label class="switch mb-0">
-                                                                            <input type="checkbox"
-                                                                                id="flexRadioDefault15-1"><span
+                                                                            <input type="checkbox" value="Use existing"
+                                                                                name="level3ThankYouPromptUse"><span
                                                                                 class="switch-state bg-success"></span>
                                                                         </label>
                                                                     </div>
-                                                                    <label class="col-form-label m-l-10"
-                                                                        for="flexRadioDefault15-1">Use existing</label>
+                                                                    <label class="col-form-label m-l-10">Use
+                                                                        existing</label>
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
-                                                                <label class="form-label" for="formFile15-2">Upload
+                                                                <label class="form-label">Upload
                                                                     new</label>
-                                                                <input class="form-control" id="formFile15-2"
-                                                                    type="file" aria-label="file example" required="">
+                                                                <input class="form-control"
+                                                                    name="level3ThankYouPromptFile" type="file">
                                                                 <div class="invalid-feedback">Invalid form file selected
                                                                 </div>
                                                             </div>
@@ -513,7 +508,7 @@ include_once 'include/sidebar.php';
 
                             <div class="col-12 mt-4">
                                 <div class="btn-group">
-                                    <button class="btn btn-primary me-2" type="submit">Add new campaign</button>
+                                    <button class="btn btn-primary me-2" type="submit" name="submitNewCampaign">Add new campaign</button>
                                     <a href="campaigns" class="btn btn-outline-primary me-2">Cancel</a>
                                 </div>
                             </div>

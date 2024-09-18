@@ -14,7 +14,6 @@ include_once 'include/sidebar.php';
         <div class="row">
             <div class="col-md-12">
                 <div class="email-sidebar md-sidebar">
-                    <a class="btn btn-primary email-aside-toggle md-sidebar-toggle">To Do filter</a>
                     <div class="email-left-aside md-sidebar-aside">
                         <div class="card theme-scrollbar mb-0">
                             <div class="card-body">
@@ -22,7 +21,6 @@ include_once 'include/sidebar.php';
                                     <div class="d-flex align-items-center">
                                         <div class="media-size-email">
                                             <i class="icon-help-alt fs-1 me-3"></i>
-                                            <!-- <img class="me-3 rounded-circle" src="assets/images/user/user.png" alt=""> -->
                                         </div>
                                         <div class="flex-grow-1">
                                             <h1 class="f-w-600">My Requests</h1>

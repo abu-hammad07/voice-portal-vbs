@@ -8,6 +8,11 @@ class Database
     private $db_password = "";
     private $db_name = "crud_vioce_portal";
 
+    // private $db_host = "localhost";
+    // private $db_username = "ki12583379_vioceportalusername";
+    // private $db_password = "QlbmkfvX~N(d";
+    // private $db_name = "ki12583379_vioceportalDB";
+
 
     private $mysqli = null;
     // private $result = array();

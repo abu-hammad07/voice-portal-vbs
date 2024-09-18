@@ -14,50 +14,34 @@ include_once 'include/sidebar.php';
                         <h4>Add new simple campaign</h4>
                     </div>
                     <div class="card-body">
-                        <form class="row g-3 needs-validation custom-input" novalidate="">
+                        <form class="row g-3 needs-validation custom-input" novalidate="" action="include/insert-data.php" method="POST" enctype="multipart/form-data">
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom01">campaign Title</label>
-                                <input class="form-control" id="validationCustom01" type="text"
+                                <label class="form-label">campaign Title</label>
+                                <input class="form-control" type="text" name="campaignTitle"
                                     placeholder="Enter campaign title" required="">
                                 <div class="invalid-feedback">Please enter your valid </div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom02">campaign Priority</label>
-                                <input class="form-control" id="validationCustom02" type="number"
+                                <label class="form-label">campaign Priority</label>
+                                <input class="form-control" type="number" name="priority"
                                     placeholder="Enter value between 1 to 10" required="">
                                 <div class="invalid-feedback">Please enter your valid </div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
-                            <!-- <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom03">campaign Product</label>
-                                <input class="form-control" id="validationCustom03" type="text"
-                                    placeholder="Start typing to get list of Products" required="">
-                                <div class="invalid-feedback">Please enter your valid</div>
-                                <div class="valid-feedback">
-                                    Looks's Good!</div>
-                            </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom04">campaign Category</label>
-                                <input class="form-control" id="validationCustom04" type="text"
-                                    placeholder="Enter Category" required="">
-                                <div class="invalid-feedback">Please enter your valid</div>
-                                <div class="valid-feedback">
-                                    Looks's Good!</div>
-                            </div> -->
-                            <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom05">campaign ShortCode</label>
-                                <input class="form-control" id="validationCustom05" type="text"
+                                <label class="form-label">campaign ShortCode</label>
+                                <input class="form-control" type="text" name="shortcode"
                                     placeholder="Enter shortcode" required="">
                                 <div class="invalid-feedback">Please enter your valid</div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom06">Maximum number of retries</label>
-                                <input class="form-control" id="validationCustom06" type="number"
+                                <label class="form-label">Maximum number of retries</label>
+                                <input class="form-control" type="number" name="retries"
                                     placeholder="Enter value between 0 to 2. By default it use global setting value"
                                     required="">
                                 <div class="invalid-feedback">Please enter your valid</div>
@@ -69,83 +53,82 @@ include_once 'include/sidebar.php';
                                 <div class="card-wrapper border rounded-3 checkbox-checked">
                                     <div class="radio-form">
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-1" type="radio"
-                                                name="radio-stacked" required="">
-                                            <label class="form-check-label" for="validationFormCheck07-1">No
+                                            <input class="form-check-input" id="noAnswer" value="No Answer" type="radio"
+                                                name="retryScenario" required="">
+                                            <label class="form-check-label" for="noAnswer">No
                                                 Answer</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-2" type="radio"
-                                                name="radio-stacked" required="">
+                                            <input class="form-check-input" id="unavailable" value="Unavailable" type="radio"
+                                                name="retryScenario" required="">
                                             <label class="form-check-label"
-                                                for="validationFormCheck07-2">Unavailable</label>
+                                                for="unavailable">Unavailable</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-3" type="radio"
-                                                name="radio-stacked" required="">
-                                            <label class="form-check-label" for="validationFormCheck07-3">Reject</label>
+                                            <input class="form-check-input" id="reject" value="Reject" type="radio"
+                                                name="retryScenario" required="">
+                                            <label class="form-check-label" for="reject">Reject</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" id="validationFormCheck07-4" type="radio"
-                                                name="radio-stacked" required="">
-                                            <label class="form-check-label" for="validationFormCheck07-4">All</label>
+                                            <input class="form-check-input" id="all" value="all" type="radio"
+                                                name="retryScenario" required="">
+                                            <label class="form-check-label" for="all">All</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="validationCustom08">Entry interval</label>
-                                <input class="form-control" id="validationCustom08" type="number" placeholder="0"
+                                <label class="form-label">Entry interval</label>
+                                <input class="form-control" type="number" name="entryInterval" placeholder="0"
                                     required>
                                 <div class="invalid-feedback">Please enter your valid</div>
                                 <div class="valid-feedback">
                                     Looks's Good!</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label for="flexSwitchCheckChecked09">Skip contact policy</label>
+                                <label for="contactPolicy">Skip contact policy</label>
                                 <div class="d-flex">
                                     <div class="flex-grow-1 icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" id="flexSwitchCheckChecked09"><span
+                                            <input type="checkbox" id="contactPolicy" name="contactPolicy"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label for="flexSwitchCheckChecked10">Skip DNCR</label>
+                                <label for="skipDNCR">Skip DNCR</label>
                                 <div class="d-flex">
                                     <div class="flex-grow-1 icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" id="flexSwitchCheckChecked10"><span
+                                            <input type="checkbox" id="skipDNCR" name="skipDNCR"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label for="flexSwitchCheckChecked10-1">Skip Specific DNCR list</label>
+                                <label for="skipSpecificDNCR">Skip Specific DNCR list</label>
                                 <div class="d-flex">
                                     <div class="flex-grow-1 icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" id="flexSwitchCheckChecked10-1"><span
+                                            <input type="checkbox" id="skipSpecificDNCR" name="skipSpecificDNCR"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="formFile11">Specific DNCR list</label>
-                                <input class="form-control" id="formFile11" type="file" aria-label="file example"
-                                    required="">
+                                <label class="form-label">Specific DNCR list</label>
+                                <input class="form-control" type="file" name="specificDNCRFile" required="">
                                 <div class="invalid-feedback">Invalid form file selected</div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label for="flexSwitchCheckChecked10-1">Prompt file</label>
+                                <label for="promptFile">Prompt file</label>
                                 <div class="d-flex">
                                     <div class="text-end icon-state switch-outline">
                                         <label class="switch mb-0">
-                                            <input type="checkbox" id="flexRadioDefault13-1"><span
+                                            <input type="checkbox" id="promptFile" name="filePrompt"><span
                                                 class="switch-state bg-success"></span>
                                         </label>
                                     </div>
@@ -153,15 +136,14 @@ include_once 'include/sidebar.php';
                                 </div>
                             </div>
                             <div class="col-md-6 col-12">
-                                <label class="form-label" for="formFile11">Updated new</label>
-                                <input class="form-control" id="formFile11" type="file" aria-label="file example"
-                                    required="">
+                                <label class="form-label">Updated new</label>
+                                <input class="form-control" type="file" name="updatedFile" required="">
                                 <div class="invalid-feedback">Invalid form file selected</div>
                             </div>
 
                             <div class="col-12 mt-4">
                                 <div class="btn-group">
-                                    <button class="btn btn-primary me-2" type="submit">Add new campaign</button>
+                                    <button class="btn btn-primary me-2" type="submit" name="submitSimpleCampaign">Add simple campaign</button>
                                     <a href="campaigns" class="btn btn-outline-primary me-2">Cancel</a>
                                 </div>
                             </div>

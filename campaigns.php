@@ -1,4 +1,9 @@
 <?php
+session_start();
+include_once 'include/database.php';
+
+$obj = new Database();
+
 include_once 'include/header.php';
 include_once 'include/sidebar.php';
 ?>
@@ -7,6 +12,7 @@ include_once 'include/sidebar.php';
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
+            <?php include_once "_message.php" ?>
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
@@ -31,7 +37,7 @@ include_once 'include/sidebar.php';
                                 <table class="table light-card">
                                     <thead class="table-light text-uppercase fw-bold">
                                         <tr>
-                                            <th scope="col">Campaigns ID</th>
+                                            <th scope="col">ID</th>
                                             <th scope="col">Title</th>
                                             <th scope="col">Created On</th>
                                             <th scope="col">Priority</th>
@@ -41,198 +47,125 @@ include_once 'include/sidebar.php';
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white">
-                                        <tr>
-                                            <td scope="row">301</td>
-                                            <td>Test</td>
-                                            <td>2011/04/25</td>
-                                            <td>6</td>
-                                            <td>admin</td>
-                                            <td>Created</td>
-                                            <td>
-                                                <ul class="action">
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Schedule">
-                                                        <a href="#" class="text-success">
-                                                            <i class="fa fa-calendar fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Stop">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-ban fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Preview">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-eye fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Status">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-check-square-o fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Edit">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-pencil-alt fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Delete">
-                                                        <a href="#" class="text-danger">
-                                                            <i class="icon-trash fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row">301</td>
-                                            <td>Test</td>
-                                            <td>2011/04/25</td>
-                                            <td>6</td>
-                                            <td>admin</td>
-                                            <td>Created</td>
-                                            <td>
-                                                <ul class="action">
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Schedule">
-                                                        <a href="#" class="text-success">
-                                                            <i class="fa fa-calendar fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Stop">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-ban fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Preview">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-eye fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Status">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-check-square-o fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Edit">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-pencil-alt fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Delete">
-                                                        <a href="#" class="text-danger">
-                                                            <i class="icon-trash fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row">301</td>
-                                            <td>Test</td>
-                                            <td>2011/04/25</td>
-                                            <td>6</td>
-                                            <td>admin</td>
-                                            <td>Created</td>
-                                            <td>
-                                                <ul class="action">
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Schedule">
-                                                        <a href="#" class="text-success">
-                                                            <i class="fa fa-calendar fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Stop">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-ban fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Preview">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-eye fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Status">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-check-square-o fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Edit">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-pencil-alt fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Delete">
-                                                        <a href="#" class="text-danger">
-                                                            <i class="icon-trash fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row">301</td>
-                                            <td>Test</td>
-                                            <td>2011/04/25</td>
-                                            <td>6</td>
-                                            <td>admin</td>
-                                            <td>Created</td>
-                                            <td>
-                                                <ul class="action">
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Schedule">
-                                                        <a href="#" class="text-success">
-                                                            <i class="fa fa-calendar fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Stop">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-ban fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Preview">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-eye fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Status">
-                                                        <a href="#" class="text-info">
-                                                            <i class="fa fa-check-square-o fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Edit">
-                                                        <a href="#" class="text-success">
-                                                            <i class="icon-pencil-alt fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Delete">
-                                                        <a href="#" class="text-danger">
-                                                            <i class="icon-trash fs-5"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
+                                        <?php
+                                        $obj->sql("SELECT * FROM new_campaign");
+                                        $data = $obj->getResult();
+                                        foreach ($data as $row) {
+                                            $createdAt = date("d-M-Y", strtotime($row['createdAt']));
+                                            $random = rand(111, 999);
+                                            ?>
+                                            <tr>
+                                                <td scope="row"><?= $random ?></td>
+                                                <td><?= $row['campaign_title'] ?></td>
+                                                <td><?= $createdAt ?></td>
+                                                <td><?= $row['priority'] ?></td>
+                                                <td><?= $row['createdBy'] ?></td>
+                                                <td>Created</td>
+                                                <td>
+                                                    <ul class="action">
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Schedule">
+                                                            <a href="#" class="text-success">
+                                                                <i class="fa fa-calendar fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Stop">
+                                                            <a href="#" class="text-info">
+                                                                <i class="fa fa-ban fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Preview">
+                                                            <a href="#" class="text-success">
+                                                                <i class="icon-eye fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Status">
+                                                            <a href="#" class="text-info">
+                                                                <i class="fa fa-check-square-o fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Edit">
+                                                            <a href="#" class="text-success">
+                                                                <i class="icon-pencil-alt fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Delete">
+                                                            <a href="#" class="text-danger">
+                                                                <i class="icon-trash fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+
+                                        $obj->sql("SELECT * FROM simple_cmapaign");
+                                        $data = $obj->getResult();
+                                        foreach ($data as $row) {
+                                            $createdAt = date("d-M-Y", strtotime($row['createdAt']));
+                                            // random number 3
+                                            $random = rand(111, 999);
+                                            ?>
+                                            <tr>
+                                                <td scope="row"><?= $random ?></td>
+                                                <td><?= $row['campaignTitle'] ?></td>
+                                                <td><?= $createdAt ?></td>
+                                                <td><?= $row['priority'] ?></td>
+                                                <td><?= $row['createdBy'] ?></td>
+                                                <td>Created</td>
+                                                <td>
+                                                    <ul class="action">
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Schedule">
+                                                            <a href="#" class="text-success">
+                                                                <i class="fa fa-calendar fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Stop">
+                                                            <a href="#" class="text-info">
+                                                                <i class="fa fa-ban fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Preview">
+                                                            <a href="#" class="text-success">
+                                                                <i class="icon-eye fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Status">
+                                                            <a href="#" class="text-info">
+                                                                <i class="fa fa-check-square-o fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Edit">
+                                                            <a href="#" class="text-success">
+                                                                <i class="icon-pencil-alt fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                            data-bs-title="Delete">
+                                                            <a href="#" class="text-danger">
+                                                                <i class="icon-trash fs-5"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        
+
+
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -240,8 +173,8 @@ include_once 'include/sidebar.php';
                     </div>
                 </div>
             </div>
-            
-            
+
+
         </div>
     </div>
     <!-- Container-fluid Ends-->

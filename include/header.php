@@ -35,6 +35,9 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/vendors/animate.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/vendors/datatables.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/vendors/date-range-picker/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/vendors/prism.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/vendors/sweetalert2.css">
+
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="./assets/css/vendors/bootstrap.css">
@@ -61,9 +64,12 @@
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
         <div class="page-header row">
             <div class="header-logo-wrapper col-auto">
-                <div class="logo-wrapper"><a href="index.php"><img class="img-fluid for-light"
-                            src="./assets/images/logo/logo.png" alt="" /><img class="img-fluid for-dark"
-                            src="./assets/images/logo/logo_light.png" alt="" /></a></div>
+                <div class="logo-wrapper">
+                    <a href="index.php">
+                        <img class="img-fluid for-light" src="./assets/images/logo/logo.png" alt="" />
+                        <img class="img-fluid for-dark" src="./assets/images/logo/logo_light.png" alt="" />
+                    </a>
+                </div>
             </div>
             <div class="col-4 col-xl-4 page-title">
                 <!-- <h4 class="f-w-700">Vioce Portal</h4> -->
@@ -93,8 +99,9 @@
                         </div>
                     </form>
                     <div class="header-logo-wrapper col-auto p-0">
-                        <div class="logo-wrapper"><a href="index.php"><img class="img-fluid"
-                                    src="./assets/images/logo/logo.png" alt=""></a></div>
+                        <div class="logo-wrapper">
+                            <a href="index.php"><img class="img-fluid" src="./assets/images/logo/logo.png" alt=""></a>
+                        </div>
                         <div class="toggle-sidebar">
                             <svg class="stroke-icon sidebar-toggle status_toggle middle">
                                 <use href="./assets/svg/icon-sprite.svg#toggle-icon"></use>

@@ -33,6 +33,9 @@
 <script src="./assets/js/slick/slick.min.js"></script>
 <script src="./assets/js/slick/slick.js"></script>
 <script src="./assets/js/header-slick.js"></script>
+<script src="./assets/js/prism/prism.min.js"></script>
+<script src="./assets/js/clipboard/clipboard.min.js"></script>
+<script src="./assets/js/custom-card/custom-card.js"></script>
 <script src="./assets/js/chart/apex-chart/apex-chart.js"></script>
 <script src="./assets/js/chart/apex-chart/stock-prices.js"></script>
 <script src="./assets/js/chart/apex-chart/moment.min.js"></script>
@@ -78,7 +81,13 @@
 <script src="./assets/js/flat-pickr/custom-flatpickr.js"></script>
 
 <script src="./assets/js/form-validation-custom.js"></script>
+
+<!-- <head>
+</head> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="./assets/js/height-equal.js"></script>
+
 
 
 <!-- Theme js-->
@@ -86,7 +95,7 @@
 <script src="./assets/js/script1.js"></script>
 <!-- <script src="./assets/js/theme-customizer/customizer.js"></script> -->
 <!-- Plugin used-->
-<script>new WOW().init();</script>
+<!-- <script>new WOW().init();</script> -->
 </body>
 
 </html>
