@@ -38,8 +38,8 @@ if (isset($_GET['activeDeactiveID'])) {
     $obj->update('users', $updateData, "uID = '{$activeDeactiveID}'");
 
     // Set a session message to confirm the update
-    $_SESSION['uID_success'] = 'User status updated successfully';
+    $_SESSION['submit_success'] = 'User status updated successfully';
     // Redirect back to the users management page
-    header('Location: users-management');
+    header('Location: users-management.php');
     exit();
 }

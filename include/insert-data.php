@@ -115,67 +115,78 @@ if (isset($_POST['add-user'])) {
 
 if (isset($_POST['saveVoiceBroadcast'])) {
 
-    function insertUser($postData, $createdBy)
-    {
-        $obj = new Database();
-        $mysqli = $obj->getMysqli();
+    $mysqli = $obj->getMysqli();
 
-        // Array of fields to process
-        $fields = [
-            'recipients',
-            'sender',
-            'speechMessage',
-            'language',
-            'voice',
-            'speechRate',
-            'uploadFile',
-            'timeZone',
-            'communicationStartDate',
-            'communicationEndDate',
-            'deliveryStartTime',
-            'deliveryEndTime',
-            'deliveryDay',
-            'enableDeliveryReports',
-            'pushDeliveryReports',
-            'dataPayload',
-            'timeUnit',
-            'numberOfMessages',
-            'period',
-            'callRetry',
-            'recordCall',
-            'detectAnsweringMachine',
-            'pauseAndCallDuration',
-            'interactionCodesDTMF',
-            'createdAt',
-            'createdBy'
-        ];
+    // Array of fields to process
+    $fields = [
+        'recipients',
+        'sender',
+        'speechMessage',
+        'language',
+        'voice',
+        'speechRate',
+        'uploadFile',
+        'timeZone',
+        'communicationStartDate',
+        'communicationEndDate',
+        'deliveryStartTime',
+        'deliveryEndTime',
+        'deliveryDay',
+        'enableDeliveryReports',
+        'pushDeliveryReports',
+        'dataPayload',
+        'timeUnit',
+        'numberOfMessages',
+        'period',
+        'callRetry',
+        'recordCall',
+        'detectAnsweringMachine',
+        'pauseAndCallDuration',
+        'interactionCodesDTMF',
+        'createdAt',
+        'createdBy'
+    ];
 
-        // Initialize an array to store sanitized values
-        $usersValue = [];
-        foreach ($fields as $field) {
-            // Use null if field is missing
-            $usersValue[$field] = isset($_POST[$field]) ? mysqli_real_escape_string($mysqli, $_POST[$field]) : null;
-        }
-
-        $createdAt = date('Y-m-d H:i:s'); // Capture current date and time
-
-        // Insert into the voiceBroadcast table
-        return $obj->insert('voiceBroadcast', $usersValue);
+    // Initialize an array to store sanitized values
+    $usersValue = [];
+    foreach ($fields as $field) {
+        // Use null if field is missing
+        $usersValue[$field] = isset($_POST[$field]) ? mysqli_real_escape_string($mysqli, $_POST[$field]) : null;
     }
 
-    // Main Execution
-    $createdBy = 'admin';  // The admin user responsible for the creation
+    // Capture current date and time for createdAt
+    $usersValue['createdAt'] = date('Y-m-d H:i:s');
+    $usersValue['createdBy'] = 'admin';
+
+    function uploadFiles($fileInputName)
+    {
+        $target_dir = "../uploads/";
+        $extension = pathinfo($_FILES[$fileInputName]["name"], PATHINFO_EXTENSION);
+        $new_filename = uniqid() . '.' . $extension;
+        $target_file = $target_dir . $new_filename;
+        move_uploaded_file($_FILES[$fileInputName]["tmp_name"], $target_file);
+        return $target_file;
+    }
+
+    // upload file
+    $usersValue['uploadFile'] = uploadFiles('uploadFile');
+
+    // Insert into the voiceBroadcast table
+    $result = $obj->insert('voiceBroadcast', $usersValue);
 
     // Call the insertUser function and check if the operation was successful
-    if (insertUser($postData, $createdBy)) {
+    if ($result) {
         $_SESSION['submit_success'] = "Voice Broadcast Added";
+        // Redirect to broadcast page after execution
+        header('location: ../broadcast.php');
+        exit();
     } else {
         $_SESSION['submit_error'] = "Failed to add Voice broadcast.";
+        // Redirect to broadcast page after execution
+        header('location: ../broadcast.php');
+        exit();
     }
 
-    // Redirect to broadcast page after execution
-    header('location: ../broadcast.php');
-    exit();
 }
 
 
@@ -224,20 +235,6 @@ if (isset($_POST['saveWhatsappBroadcast'])) {
     // Capture current date and time for createdAt
     $usersValue['createdAt'] = date('Y-m-d H:i:s');
     $usersValue['createdBy'] = 'admin';
-
-    function uploadFile($fileInputName)
-    {
-        $target_dir = "../uploads/";
-        $extension = pathinfo($_FILES[$fileInputName]["name"], PATHINFO_EXTENSION);
-        $new_filename = uniqid() . '.' . $extension;
-        $target_file = $target_dir . $new_filename;
-        move_uploaded_file($_FILES[$fileInputName]["tmp_name"], $target_file);
-        return $target_file;
-    }
-
-    // upload file
-    $usersValue['specificDNCRFile'] = uploadFile('specificDNCRFile');
-    $usersValue['updatedFile'] = uploadFile('updatedFile');
 
     $result = $obj->insert('whatsappBroadcast', $usersValue);
 

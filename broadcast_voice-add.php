@@ -9,7 +9,7 @@ include_once 'include/sidebar.php';
     <div class="container-fluid">
         <div class="row">
             <form class="row g-3 needs-validation custom-input" novalidate="" action="include/insert-data.php"
-                method="POST">
+                method="POST" enctype="multipart/form-data">
 
                 <div class="col-md-12">
                     <div class="card height-equal">

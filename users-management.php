@@ -42,6 +42,7 @@ include_once 'include/sidebar.php';
             unset($_SESSION['uID_error']);
         }
         ?>
+        <?php include_once "_message.php" ?>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -61,10 +62,10 @@ include_once 'include/sidebar.php';
                             </div>
                         </div>
                     </div>
-                    <div class="card-block row">
+                    <div class="card-body row">
                         <div class="col-sm-12 col-lg-12 col-xl-12">
-                            <div class="table-responsive theme-scrollbar">
-                                <table class="table light-card">
+                            <div class="dt-ext table-responsive theme-scrollbar">
+                                <table class="display" id="keytable">
                                     <thead class="table-light text-uppercase fw-bold">
                                         <tr>
                                             <th scope="col">Id</th>
@@ -99,19 +100,19 @@ include_once 'include/sidebar.php';
                                                         <ul class="action">
                                                             <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 data-bs-title="' . ($row['status'] == 1 ? 'Disable' : 'Enable') . '">
-                                                                <a href="admin-index?activeDeactiveID=' . $row['uID'] . '" class="text-' . ($row['status'] == 1 ? 'danger' : 'success') . '">
+                                                                <a href="admin-index.php?activeDeactiveID=' . $row['uID'] . '" class="text-' . ($row['status'] == 1 ? 'danger' : 'success') . '">
                                                                     <i class="icofont icofont-ui-block fs-5"></i>
                                                                 </a>
                                                             </li>
                                                             <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 data-bs-title="Edit">
-                                                                <a href="user-edit?uID=' . $row['uID'] . '" class="text-success">
+                                                                <a href="user-edit.php?uID=' . $row['uID'] . '" class="text-success">
                                                                     <i class="icon-pencil-alt fs-5"></i>
                                                                 </a>
                                                             </li>
                                                             <li class="me-2" data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 data-bs-title="Delete">
-                                                                <a href="admin-index?deleteID=' . $row['uID'] . '" class="text-danger">
+                                                                <a href="admin-index.php?deleteID=' . $row['uID'] . '" class="text-danger">
                                                                     <i class="icon-trash fs-5"></i>
                                                                 </a>
                                                             </li>
@@ -129,125 +130,7 @@ include_once 'include/sidebar.php';
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header pb-0 card-no-border">
-                        <h4>Users</h4>
-                        <p class="text-muted card-sub-title">Manage system users</p>
-                    </div>
-                    <div class="card-body">
-                        <div class="dt-ext table-responsive theme-scrollbar">
-                            <table class="display" id="export-button">
-                                <thead>
-                                    <tr>
-                                        <th>Username</th>
-                                        <th>Type</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>admin</td>
-                                        <td>ADMIN</td>
-                                        <td>Enable</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">Action</button>
-                                                <ul class="dropdown-menu dropdown-block">
-                                                    <li><a class="dropdown-item" href="user-edit">
-                                                            <i class="icon-pencil-alt"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-ban"></i> Disable</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-trash"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>admin</td>
-                                        <td>CAMPAIGN_REPORT_ADMIN</td>
-                                        <td>Enable</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">Action</button>
-                                                <ul class="dropdown-menu dropdown-block">
-                                                    <li><a class="dropdown-item" href="user-edit">
-                                                            <i class="icon-pencil-alt"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-ban"></i> Disable</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-trash"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>admin</td>
-                                        <td>CAMPAIGN_ADMIN</td>
-                                        <td>Enable</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">Action</button>
-                                                <ul class="dropdown-menu dropdown-block">
-                                                    <li><a class="dropdown-item" href="user-edit">
-                                                            <i class="icon-pencil-alt"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-ban"></i> Disable</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-trash"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>admin</td>
-                                        <td>CAMPAIGN_REPORT_ADMIN</td>
-                                        <td>Enable</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">Action</button>
-                                                <ul class="dropdown-menu dropdown-block">
-                                                    <li><a class="dropdown-item" href="user-edit">
-                                                            <i class="icon-pencil-alt"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-ban"></i> Disable</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-trash"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>admin</td>
-                                        <td>ADMIN</td>
-                                        <td>Enable</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-primary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">Action</button>
-                                                <ul class="dropdown-menu dropdown-block">
-                                                    <li><a class="dropdown-item" href="user-edit">
-                                                            <i class="icon-pencil-alt"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-ban"></i> Disable</a></li>
-                                                    <li><a class="dropdown-item" href="#!">
-                                                            <i class="icon-trash"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+
         </div>
     </div>
     <!-- Container-fluid Ends-->

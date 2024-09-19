@@ -31,11 +31,11 @@ include_once 'include/sidebar.php';
                             </div>
                         </div>
                     </div>
-                    <div class="card-block row">
+                    <div class="card-body row">
                         <div class="col-sm-12 col-lg-12 col-xl-12">
-                            <div class="table-responsive theme-scrollbar">
-                                <table class="table light-card">
-                                    <thead class="table-light text-uppercase fw-bold">
+                            <div class="dt-ext table-responsive theme-scrollbar">
+                                <table class="display" id="keytable">
+                                    <thead class="fw-bold">
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Title</th>
@@ -48,7 +48,7 @@ include_once 'include/sidebar.php';
                                     </thead>
                                     <tbody class="bg-white">
                                         <?php
-                                        $obj->sql("SELECT * FROM new_campaign");
+                                        $obj->sql("SELECT * FROM new_campaign ORDER BY camID DESC");
                                         $data = $obj->getResult();
                                         foreach ($data as $row) {
                                             $createdAt = date("d-M-Y", strtotime($row['createdAt']));
@@ -105,7 +105,7 @@ include_once 'include/sidebar.php';
                                             <?php
                                         }
 
-                                        $obj->sql("SELECT * FROM simple_cmapaign");
+                                        $obj->sql("SELECT * FROM simple_cmapaign ORDER BY sID DESC");
                                         $data = $obj->getResult();
                                         foreach ($data as $row) {
                                             $createdAt = date("d-M-Y", strtotime($row['createdAt']));
@@ -114,7 +114,7 @@ include_once 'include/sidebar.php';
                                             ?>
                                             <tr>
                                                 <td scope="row"><?= $random ?></td>
-                                                <td><?= $row['campaignTitle'] ?></td>
+                                                <td><?= $row['campaignTitle'] ?> (Simple)</td>
                                                 <td><?= $createdAt ?></td>
                                                 <td><?= $row['priority'] ?></td>
                                                 <td><?= $row['createdBy'] ?></td>
@@ -162,7 +162,7 @@ include_once 'include/sidebar.php';
                                             </tr>
                                             <?php
                                         }
-                                        
+
 
 
                                         ?>

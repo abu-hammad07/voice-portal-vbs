@@ -43,8 +43,9 @@ include_once 'include/sidebar.php';
                                                             <div class="modal-toggle-wrapper border text-center p-2">
                                                                 <ul class="modal-img">
                                                                     <li>
-                                                                        <img src="assets/images/gif/sms.gif"class="w-100 h-100" alt="sms">
-                                                                        </li>
+                                                                        <img src="assets/images/gif/sms.gif"
+                                                                            class="w-100 h-100" alt="sms">
+                                                                    </li>
                                                                 </ul>
                                                                 <h5 class="f-w-300">SMS</h5>
                                                             </div>
@@ -157,16 +158,44 @@ include_once 'include/sidebar.php';
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
+                                                <?php
+                                                $obj->sql("SELECT * FROM voicebroadcast ORDER BY voiceID DESC");
+                                                $data = $obj->getResult();
+                                                foreach ($data as $row) {
+                                                    $createdAt = date("d-M-Y", strtotime($row['createdAt']));
+                                                    $randomNumber = rand(1,9)
+                                                    ?>
+                                                    <tr>
+                                                        <td>Voice</td>
+                                                        <td>Send</td>
+                                                        <td><?= $randomNumber ?></td>
+                                                        <td><?= $createdAt ?></td>
+                                                        <td></td>
+                                                        <td><?= $createdAt ?></td>
+                                                        <td><?= $row['createdBy'] ?></td>
+                                                    </tr>
+                                                    <?php
+                                                }
+
+
+                                                $obj->sql("SELECT * FROM whatsappbroadcast ORDER BY whatsappID DESC");
+                                                $data = $obj->getResult();
+                                                foreach ($data as $row) {
+                                                    $createdAt = date("d-M-Y", strtotime($row['createdAt']));
+                                                    $randomNumber = rand(1,99)
+                                                    ?>
+                                                    <tr>
+                                                        <td>WhatsApp</td>
+                                                        <td>Send</td>
+                                                        <td><?= $randomNumber ?></td>
+                                                        <td><?= $createdAt ?></td>
+                                                        <td></td>
+                                                        <td><?= $createdAt ?></td>
+                                                        <td><?= $row['createdBy'] ?></td>
+                                                    </tr>
+                                                    <?php
+                                                }
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
